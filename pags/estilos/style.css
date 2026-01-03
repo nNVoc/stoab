@@ -7,9 +7,10 @@
 
 :root {
     --color1: #3788E6;
-    --backcolor: #37e69736;
-    --color2: #9BE637;
+    --color2: #E64537;
+    --backcolor: #37e6972f;
     --color3: #37C0E6;
+    --color4: #9BE637;
 }
 
 body {
@@ -17,37 +18,51 @@ body {
     background-color: var(--backcolor);
 }
 
+h1 {
+    background-color: var(--color1);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 4em;
+}
+
+p {
+    text-align: center;
+    padding: 10px;
+}
+
+.li-1st > p {
+    background-color: var(--color2);
+    font-size: 3em;
+}
+
 .li-2nd > p {
     background-color: var(--color1);
-    text-align: center;
-    font-size: 3em;
+    font-size: 2em;
 }
 
 ul {
     list-style: none;
 }
 
-ul:has(li.item) {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 20px;
+li.li-2nd > ul {
+    padding: 5px;
     
-    font-size: 14px;
+    font-size: 11px;
     font-weight: bold;
 }
 
 .item {
     background-color: var(--color3);
-    border-radius: 20px;
+    border-radius: 10px;
     color:white;
     text-align: center;
     border: 1px solid black;
-    flex-basis: 150px;
+    margin: 4px;
 }
 
 .item.checked {
-    background-color: var(--color2);
+    background-color: var(--color4);
     color: black;
     text-decoration: line-through;
     transition: all 0.3s;
@@ -59,7 +74,7 @@ ul:has(li.item) {
 
     display: flex;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
     width: 100%;
     
