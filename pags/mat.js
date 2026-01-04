@@ -1,5 +1,6 @@
 var itens = document.querySelectorAll("ul>li");
 var li2nds = document.querySelectorAll(".li-2nd");
+var li1sts = document.querySelectorAll(".li-1st");
 
 itens.forEach((item, i) => {
     var checkbox = document.createElement("input");
@@ -21,40 +22,68 @@ itens.forEach((item, i) => {
 
 li2nds.forEach((li2nd, j) => {
     var article = document.createElement("article");
-    article.id = "article-" + j;
-    article.setAttribute("class", "article-2nd");
+    article.id = "counter-" + j;
+    article.classList.add("counter-2nd", "counter");
+
+    const items = li2nd.querySelectorAll(".item");
+
+    function atualizar() {
+        const concluidos = li2nd.querySelectorAll(".item.checked").length;
+        article.textContent = `${concluidos} / ${items.length}`;
+    }
+
+    const observer = new MutationObserver(mutations => {
+        for (const m of mutations) {
+            if (m.type === "attributes" && m.attributeName) {
+                atualizar();
+                break;
+            }
+        }
+    })
+
+    items.forEach(item => {
+        observer.observe(item, {
+            attributes: true,
+            attributeFilter: ["class"]
+        });
+    })
+
     li2nd.appendChild(article);
+    atualizar();
 })
 
-/* Lê aí o gpt 
-const counter = document.getElementById("counter");
-const items = document.querySelectorAll(".item");
+li1sts.forEach((li1st, k) => {
+    var article = document.createElement("article");
+    article.id = "counter-" + k;
+    article.classList.add("counter-1st", "counter");
 
-function atualizar() {
-    const mudados = document.querySelectorAll(".item.changed").length;
-    counter.textContent = `${mudados}/${items.length}`;
-}
+    const items = li1st.querySelectorAll(".item");
 
-// observa mudanças de classe
-const observer = new MutationObserver(mutations => {
-    for (const m of mutations) {
-        if (m.type === "attributes" && m.attributeName === "class") {
-            atualizar();
-            break;
-        }
+    function atualizar() {
+        var concluidos = li1st.querySelectorAll(".item.checked").length;
+        article.textContent = `${concluidos} / ${items.length}`;
     }
-});
 
-// começa a observar
-items.forEach(item => {
-    observer.observe(item, {
-        attributes: true,
-        attributeFilter: ["class"]
-    });
-});
+    const observer = new MutationObserver(mutations => {
+        for (const m of mutations) {
+            if (m.type === "attributes" && m.attributeName) {
+                atualizar();
+                break;
+            }
+        }
+    })
 
-// inicial
-atualizar();
- */
+    items.forEach(item => {
+        observer.observe(item, {
+            attributes: true,
+            attributeFilter: ["class"]
+        });
+    })
+    
+    li1st.appendChild(article);
+    atualizar();
+})
+
+
 
 

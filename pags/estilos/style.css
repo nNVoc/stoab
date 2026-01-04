@@ -87,3 +87,17 @@ input[type="checkbox"] {
     display: none;
 }
 
+.counter {
+    text-align: center;
+    padding: 9px;
+}
+
+.counter-2nd {
+    background-color: var(--color2);
+}
+
+.counter-1st {
+    background-color: var(--color1);
+}
+
+
