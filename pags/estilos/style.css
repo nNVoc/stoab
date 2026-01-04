@@ -3,6 +3,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 :root {
@@ -90,10 +91,16 @@ input[type="checkbox"] {
 .counter {
     text-align: center;
     padding: 9px;
+
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .counter-2nd {
     background-color: var(--color2);
+    bottom: 34px;
 }
 
 .counter-1st {
