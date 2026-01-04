@@ -23,7 +23,7 @@ h1 {
     background-color: var(--color1);
     color: white;
     padding: 10px;
-    text-align: center;
+    text-align:center;
     font-size: 4em;
 }
 
