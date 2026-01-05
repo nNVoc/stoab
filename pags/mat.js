@@ -1,11 +1,15 @@
 var itens = document.querySelectorAll("ul>li");
 var li2nds = document.querySelectorAll(".li-2nd");
 var li1sts = document.querySelectorAll(".li-1st");
-let tab = [1, 0]
 
 function setchecked(key) {
     return localStorage.getItem(key) === "true";
 }
+
+const maior = [...itens].reduce((a,b) => b.innerText.length > a.innerText.length ? b : a);
+document.querySelectorAll("ul").forEach(ul => {
+    ul.style.gridAutoRows = `${maior.innerText.length * 1.2}px`;
+})
 
 itens.forEach((item, i) => {
     var checkbox = document.createElement("input");

@@ -10,4 +10,21 @@
     body {
         background-color: rgb(183, 183, 224);
     }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 48vw);
+        grid-row-start: 100px;
+        justify-content: center;
+    }
+
+    .item {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    ul {
+        grid-template-columns: repeat(3, 33vw);
+    }
 }
