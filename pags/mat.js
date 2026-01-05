@@ -1,6 +1,11 @@
 var itens = document.querySelectorAll("ul>li");
 var li2nds = document.querySelectorAll(".li-2nd");
 var li1sts = document.querySelectorAll(".li-1st");
+let tab = [1, 0]
+
+function setchecked(key) {
+    return localStorage.getItem(key) === "true";
+}
 
 itens.forEach((item, i) => {
     var checkbox = document.createElement("input");
@@ -17,7 +22,13 @@ itens.forEach((item, i) => {
 
     checkbox.addEventListener("change", () => {
         item.classList.toggle("checked", checkbox.checked)
+        localStorage.setItem("item-" + i, checkbox.checked)
     })
+
+    if (setchecked("item-" + i)) { /* precisa colocar o checkbox.checked = true, pq se não o bagulho vai estar com a class checked sem estar com sua checkbox no checked, então terei de clicar duas vezes para deixá-la false */
+        checkbox.checked = true;
+        item.classList.add("checked");
+    }
 })
 
 li2nds.forEach((li2nd, j) => {
