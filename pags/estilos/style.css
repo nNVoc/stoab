@@ -85,7 +85,7 @@ li > ul {
 }
 
 .item label:hover {
-    background-color: rgb(214, 214, 214);
+    background-color: rgba(214, 214, 214, 0.664);
 }
 
 input[type="checkbox"] {
