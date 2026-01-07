@@ -123,12 +123,12 @@ input[type="checkbox"] {
     width: 100%;
 }
 
-.counter-2nd {
+.counter-2 {
     background-color: var(--color2);
     bottom: 34px;
 }
 
-.counter-1st {
+.counter-1 {
     background-color: var(--color1);
 }
 
